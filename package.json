@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-api-solid-ignite-p3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gustavoviais/nodejs-api-solid-ignite-p3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gustavoviais/nodejs-api-solid-ignite-p3/issues"
+  },
+  "homepage": "https://github.com/gustavoviais/nodejs-api-solid-ignite-p3#readme",
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "tsup": "^6.7.0",
+    "tsx": "^3.12.6",
+    "typescript": "^5.0.4"
+  }
+}
