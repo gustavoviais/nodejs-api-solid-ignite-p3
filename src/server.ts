@@ -7,5 +7,5 @@ app
     port: env.PORT,
   })
   .then(() => {
-    console.log('Application running...');
+    console.log(`Application running on PORT ${env.PORT}`);
   });
