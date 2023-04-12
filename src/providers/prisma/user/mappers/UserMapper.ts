@@ -11,7 +11,8 @@ export class UserMapper {
 
   static toModel(entity: UserEntity): Prisma.UserCreateInput {
     return {
-      ...entity,
+      name: entity.name,
+      email: entity.email,
       password_hash: entity?.passwordHash,
     };
   }
