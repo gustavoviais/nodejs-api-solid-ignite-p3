@@ -1,31 +1,26 @@
 import { prisma } from '@/lib/prisma';
 import { hash } from 'bcryptjs';
-import { IUserData } from '../data/IUserData';
+import { IUserData, IUserRequestDTO } from '../data/IUserData';
 import { UserAlreadyExistsError } from '../errors/UserAlreadyExistsError';
-
-interface RegisterUseCaseRequest {
-  name: string;
-  email: string;
-  password: string;
-}
+import { UserEntity } from '../entities/UserEntity';
 
 export class CreateUserUseCase {
   constructor(private userRepository: IUserData) {}
 
-  async execute({ name, email, password }: RegisterUseCaseRequest) {
+  async execute({
+    name,
+    email,
+    password,
+  }: IUserRequestDTO): Promise<UserEntity> {
     const passwordHash = await hash(password, 5);
 
-    const userWithSameEmail = await prisma.user.findUnique({
-      where: {
-        email,
-      },
-    });
+    const userWithSameEmail = await this.userRepository.findByEmail(email);
 
     if (userWithSameEmail) {
       throw new UserAlreadyExistsError();
     }
 
-    await this.userRepository.create({
+    return this.userRepository.create({
       name,
       email,
       passwordHash,
