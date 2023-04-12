@@ -1,8 +1,7 @@
-import { prisma } from '@/lib/prisma';
 import { hash } from 'bcryptjs';
 import { IUserData, IUserRequestDTO } from '../data/IUserData';
-import { UserAlreadyExistsError } from '../errors/UserAlreadyExistsError';
 import { UserEntity } from '../entities/UserEntity';
+import { UserAlreadyExistsError } from '../errors/UserAlreadyExistsError';
 
 export class CreateUserUseCase {
   constructor(private userRepository: IUserData) {}
